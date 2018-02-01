@@ -1,0 +1,36 @@
+###This program is to display the weather conditions based on the given city name from the user###
+
+import requests
+city=input("ENTER THE CITY NAME TO KNOW THE WEATHER CONDITION : ") #Will get the input from the user(desired city name)
+url="http://openweathermap.org/data/2.5/weather?q="+city+"&appid=b6907d289e10d714a6e88b30761fae22" # this wil store the url in variable name 'url'
+data=requests.get(url)
+read=data.json()
+#print(read)
+
+print("********This is my first weather app**********")
+print ('\n')
+
+print ("CITY NAME     : {}".format(read['name']))
+print ('\n')
+print ("COUNTRY NAME  : {}".format(read['sys']['country']))
+print ("TEMPERATURE   : {}F".format(read['main']['temp']))
+print ("PRESSURE      : {}".format(read['main']['pressure']))
+print ("HUMIDITY      : {} %".format(read['main']['humidity']))
+print ("Temp minimum  : {}".format(read['main']['temp_min']))
+print ("Temp maximum  : {}".format(read['main']['temp_max']))
+print ("Wind Speed    : {}".format(read['wind']['speed']))
+print ("Wind_degree   : {} degree".format(read['wind']['deg']))
+print ("Sunrise       : {}".format(read['sys']['sunrise']))#Displays Sunrise
+print ("Sunset        : {}".format(read['sys']['sunset']))#Displays sunset
+print('\n')
+print ("*****........END OF MY FIRST PYTHON PROGRAM......******")
+
+
+###Program to convert given temperature in celcius to Farenheit####
+
+Temp = float(input("Please enter the temperature in Celcius : " ))
+Farenheit = (Temp*1.8)+32.0
+print("The Temperature in Farenheit is : ", Farenheit,"F")
+
+
+##########""END OF THE PROGRAM""##############
